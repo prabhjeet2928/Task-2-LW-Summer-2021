@@ -1,0 +1,11 @@
+print("\n\t\t\tWelcome to The Task -2 of LW-Summer 2021\n")
+print("\n GUI Container on the Docker\n")
+print("\n Launch a container on docker in GUI mode\n")
+print("\n Run any GUI software on the container\n")
+container = input("Enter your container name: ")
+image = input("Enter your image name which is on DockerHub: ")
+version = input("Give version of the image: ")
+from os import system
+system("docker run -dit --env=DISPLAY --net=host --name {} {}:{}".format(container,image,version))
+system("docker cp python_shell.sh {}:/".format(container))
+system("docker attach {}".format(container))
